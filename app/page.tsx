@@ -8,6 +8,7 @@ import { SpecialtiesSection } from "@/components/oxcentro/specialties-section"
 import { ExamsSection } from "@/components/oxcentro/exams-section"
 import { ContactSection } from "@/components/oxcentro/contact-section"
 import { Footer } from "@/components/oxcentro/footer"
+import { WhatsAppButton } from "@/components/oxcentro/whatsapp-button"
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <ExamsSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </main>
   )
 }
