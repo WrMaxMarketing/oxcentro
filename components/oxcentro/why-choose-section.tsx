@@ -1,80 +1,69 @@
-import { Users, Cpu, Heart, CalendarClock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Calendar } from 'lucide-react'
+import { FadeInSection } from './fade-in-section'
 
 const features = [
   {
-    number: "01",
-    icon: Users,
-    title: "Equipe multidisciplinar",
+    number: '01',
+    title: 'Equipe multidisciplinar',
     description:
-      "Especialistas renomados em diversas áreas da saúde para cuidar de você e sua família.",
+      'Especialistas renomados em diversas áreas da saúde para cuidar de você e sua família.',
   },
   {
-    number: "02",
-    icon: Cpu,
-    title: "Tecnologia de ponta",
-    description:
-      "Diagnósticos precisos e tratamentos avançados com os equipamentos mais modernos.",
+    number: '02',
+    title: 'Tecnologia de ponta',
+    description: 'Diagnósticos precisos e tratamentos avançados com os equipamentos mais modernos.',
   },
   {
-    number: "03",
-    icon: Heart,
-    title: "Atendimento humanizado",
+    number: '03',
+    title: 'Atendimento humanizado',
     description:
-      "Cuidado acolhedor e personalizado para você e sua família, com respeito e atenção.",
+      'Cuidado acolhedor e personalizado para você e sua família, com respeito e atenção.',
   },
   {
-    number: "04",
-    icon: CalendarClock,
-    title: "Facilidade de agendamento",
-    description:
-      "Agende sua consulta facilmente via WhatsApp ou telefone, sem burocracia.",
+    number: '04',
+    title: 'Facilidade de agendamento',
+    description: 'Agende sua consulta facilmente via WhatsApp ou telefone, sem burocracia.',
   },
 ]
 
+const WHATSAPP_LINK =
+  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
+
 export function WhyChooseSection() {
   return (
-    <section id="beneficios" className="py-16 lg:py-24 bg-card">
+    <section id="beneficios" className="py-20 lg:py-28 bg-navy-50">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <FadeInSection className="text-center max-w-2xl mx-auto mb-14">
+          <span className="eyebrow">Por que nos escolher?</span>
+          <h2 className="section-title text-3xl lg:text-4xl mb-4">
             Por que a OxCentro é a melhor escolha pra você?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-cinza leading-relaxed">
             Vale de uma razão para confiar a saúde de sua família ao nosso cuidado.
           </p>
-        </div>
+        </FadeInSection>
 
-        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature) => (
-            <Card
-              key={feature.number}
-              className="relative border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-            >
-              <CardContent className="p-6">
-                {/* Number Badge */}
-                <span className="absolute top-4 right-4 text-4xl font-bold text-muted/30 group-hover:text-primary/20 transition-colors">
-                  {feature.number}
+          {features.map((f, i) => (
+            <FadeInSection key={f.number} delay={i * 100} className="h-full">
+              <div className="group relative h-full rounded-2xl bg-white border border-borda p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+                <span className="block font-heading text-5xl font-extrabold text-red mb-3 leading-none">
+                  {f.number}
                 </span>
-
-                {/* Icon */}
-                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="h-7 w-7 text-primary" />
-                </div>
-
-                {/* Content */}
-                <h3 className="font-semibold text-foreground text-lg mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
+                <h3 className="font-heading font-bold text-navy text-lg mb-2">{f.title}</h3>
+                <p className="text-sm text-cinza leading-relaxed">{f.description}</p>
+                <span className="absolute bottom-0 left-7 right-7 h-1 rounded-full bg-red scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              </div>
+            </FadeInSection>
           ))}
         </div>
+
+        <FadeInSection className="text-center mt-14" delay={150}>
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+            <Calendar className="h-5 w-5" />
+            Agende sua Consulta Agora
+          </a>
+        </FadeInSection>
       </div>
     </section>
   )
