@@ -31,7 +31,7 @@ export function CtaBand() {
       <div className="container relative mx-auto px-4 lg:px-8">
         <FadeInSection className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
           <div>
-            <span className="eyebrow">Atendimento ágil</span>
+            <span className="eyebrow text-[#ff8a8a]">Atendimento ágil</span>
             <h2 className="font-heading text-3xl lg:text-4xl font-extrabold text-white mb-3 leading-tight">
               Atendimento rápido direto pelo WhatsApp
             </h2>

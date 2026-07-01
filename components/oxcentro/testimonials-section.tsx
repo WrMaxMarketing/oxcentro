@@ -32,7 +32,7 @@ export function TestimonialsSection() {
 
       <div className="container relative mx-auto px-4 lg:px-8">
         <FadeInSection className="text-center max-w-2xl mx-auto mb-14">
-          <span className="eyebrow">Depoimentos</span>
+          <span className="eyebrow text-[#ff8a8a]">Depoimentos</span>
           <h2 className="font-heading text-3xl lg:text-4xl font-extrabold text-white">
             O que nossos pacientes dizem
           </h2>

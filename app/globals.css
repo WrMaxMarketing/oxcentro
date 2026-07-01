@@ -201,8 +201,26 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+  /* Compensa o header fixo ao rolar para as âncoras (#inicio, #beneficios...) */
+  :where(section[id]) {
+    scroll-margin-top: 5rem;
+  }
+  /* Respeita usuários que preferem menos animação */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
   /* Foco visível acessível (anel navy) em todos os interativos */
   a:focus-visible,

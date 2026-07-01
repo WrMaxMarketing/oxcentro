@@ -63,14 +63,19 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div
-              className="flex flex-wrap gap-4 mb-10 animate-fade-up"
+              className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-10 animate-fade-up"
               style={{ animationDelay: '0.32s' }}
             >
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp w-full sm:w-auto"
+              >
                 <Calendar className="h-5 w-5" />
                 Agende sua Consulta Agora
               </a>
-              <a href="#especialidades" className="btn-navy-outline">
+              <a href="#especialidades" className="btn-navy-outline w-full sm:w-auto">
                 Ver Serviços
                 <ArrowRight className="h-5 w-5" />
               </a>
