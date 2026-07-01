@@ -1,92 +1,52 @@
-import { Button } from "@/components/ui/button"
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
+import { FadeInSection } from './fade-in-section'
+
+const infos = [
+  { icon: Phone, label: 'Telefone / WhatsApp', value: '(86) 9 9970-9973' },
+  { icon: Mail, label: 'E-mail', value: 'contato@oxcentromedico.com' },
+  { icon: MapPin, label: 'Endereço', value: 'R. São Pedro, 1504 - Centro (Sul), Teresina - PI' },
+  { icon: Clock, label: 'Horário de Atendimento', value: 'Seg - Sex: 08h às 18h | Sáb: 08h às 12h' },
+]
+
+const WHATSAPP_LINK =
+  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame.'
 
 export function ContactSection() {
   return (
-    <section id="contato" className="py-16 lg:py-24 bg-muted">
+    <section id="contato" className="py-20 lg:py-28 bg-navy-50">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div>
-            <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
-              Fale Conosco
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Entre em contato e{" "}
-              <span className="text-primary">agende seu exame</span>
-            </h2>
+        <FadeInSection className="max-w-2xl mb-12">
+          <span className="eyebrow">Fale Conosco</span>
+          <h2 className="section-title text-3xl lg:text-4xl">
+            Entre em contato e <span className="text-red">agende seu exame</span>
+          </h2>
+        </FadeInSection>
 
-            <div className="space-y-6">
-              {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-primary" />
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          {/* Cards de contato */}
+          <FadeInSection>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {infos.map((info) => (
+                <div key={info.label} className="card-soft flex items-start gap-4 p-5">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-navy flex-shrink-0">
+                    <info.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-navy text-sm mb-0.5">{info.label}</h3>
+                    <p className="text-cinza text-sm leading-snug">{info.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">
-                    Telefone / WhatsApp
-                  </h3>
-                  <p className="text-muted-foreground">(86) 9 9970-9973</p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">E-mail</h3>
-                  <p className="text-muted-foreground">
-                    contato@oxcentromedico.com
-                  </p>
-                </div>
-              </div>
-
-              {/* Address */}
-              <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">
-                    Endereço
-                  </h3>
-                  <p className="text-muted-foreground">
-                    R. São Pedro, 1504 - Centro (Sul), Teresina - PI
-                  </p>
-                </div>
-              </div>
-
-              {/* Hours */}
-              <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">
-                    Horário de Atendimento
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Seg - Sex: 08h às 18h | Sáb: 08h às 12h
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* CTA Button */}
-            <Button
-              size="lg"
-              className="mt-8 bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              <MessageCircle className="mr-2 h-5 w-5" />
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+              <MessageCircle className="h-5 w-5" />
               Agende seu Exame Agora
-            </Button>
-          </div>
+            </a>
+          </FadeInSection>
 
-          {/* Map */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] lg:h-full min-h-[400px] bg-card border border-border">
+          {/* Mapa */}
+          <FadeInSection className="relative">
+            <div className="relative h-[420px] min-h-[420px] w-full overflow-hidden rounded-2xl border border-borda bg-white shadow-card lg:h-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.2255476086786!2d-42.81231712415128!3d-5.067169451457497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78e39016912389d%3A0xc3f8b0008518902d!2sOxcentro%20M%C3%A9dico!5e0!3m2!1spt-BR!2sbr!4v1710790000000!5m2!1spt-BR!2sbr"
                 width="100%"
@@ -98,12 +58,10 @@ export function ContactSection() {
                 title="Localização OxCentro Médico"
               />
             </div>
-            
-            {/* Location Badge */}
-            <div className="absolute bottom-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg">
-              <span className="font-semibold">Localização</span>
+            <div className="absolute bottom-4 right-4 rounded-lg bg-navy px-4 py-2 text-white shadow-lg">
+              <span className="font-semibold text-sm">Localização</span>
             </div>
-          </div>
+          </FadeInSection>
         </div>
       </div>
     </section>
