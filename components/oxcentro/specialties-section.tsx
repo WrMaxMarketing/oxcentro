@@ -1,80 +1,75 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Calendar } from "lucide-react"
-import Image from "next/image"
+import { Calendar } from 'lucide-react'
+import Image from 'next/image'
+import { FadeInSection } from './fade-in-section'
 
 const doctors = [
   {
-    name: "Dra. Maria Catarina",
-    specialty: "Especialidades",
-    image: "/images/doc1.png",
+    name: 'Dra. Maria Catarina',
+    specialty: 'Especialidades',
+    image: '/images/doc1.png',
   },
   {
-    name: "Andressa Leão",
-    specialty: "Especialidades",
-    image: "/images/doc2.png",
+    name: 'Andressa Leão',
+    specialty: 'Especialidades',
+    image: '/images/doc2.png',
   },
   {
-    name: "Dra. Mariana Soares",
-    specialty: "Especialidades",
-    image: "/images/doc3.png",
+    name: 'Dra. Mariana Soares',
+    specialty: 'Especialidades',
+    image: '/images/doc3.png',
   },
-];
+]
+
+const WHATSAPP_LINK =
+  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
 
 export function SpecialtiesSection() {
   return (
-    <section id="especialidades" className="py-16 lg:py-24 bg-secondary">
+    <section id="especialidades" className="py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-secondary-foreground mb-4">
+        <FadeInSection className="text-center max-w-3xl mx-auto mb-12">
+          <span className="eyebrow">Nossa Equipe</span>
+          <h2 className="section-title text-3xl lg:text-4xl">
             Nossa equipe está pronta para oferecer o melhor atendimento em diversas especialidades!
           </h2>
-        </div>
+        </FadeInSection>
 
-        {/* Doctors Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {doctors.map((doctor) => (
-            <Card
-              key={doctor.name}
-              className="overflow-hidden border-0 shadow-lg group"
-            >
-              {/* Container da Imagem */}
-              <div className="relative h-[350px] w-full bg-muted">
-                <Image
-                  src={doctor.image}
-                  alt={doctor.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  priority
-                />
-                
-                {/* Badge da Especialidade sobre a foto */}
-                <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-md text-sm font-medium shadow-md">
-                  {doctor.specialty}
+        <div className="grid md:grid-cols-3 gap-7 mb-12">
+          {doctors.map((doctor, i) => (
+            <FadeInSection key={doctor.name} delay={i * 120} className="h-full">
+              <article className="group relative h-full overflow-hidden rounded-2xl shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+                <div className="relative h-[380px] bg-navy-50">
+                  <Image
+                    src={doctor.image}
+                    alt={doctor.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-              </div>
-
-              <CardContent className="p-4 bg-card">
-                <h3 className="font-semibold text-foreground text-center text-lg">
-                  {doctor.name}
-                </h3>
-              </CardContent>
-            </Card>
+                {/* Faixa navy inferior */}
+                <div className="relative bg-navy px-5 py-4">
+                  {/* Detalhe vermelho que cresce no hover */}
+                  <span
+                    className="absolute left-0 top-0 h-1 w-0 bg-red transition-all duration-300 group-hover:w-full"
+                    aria-hidden="true"
+                  />
+                  <p className="text-white/60 text-xs uppercase tracking-widest mb-0.5">
+                    {doctor.specialty}
+                  </p>
+                  <h3 className="text-white font-heading font-bold text-lg">{doctor.name}</h3>
+                </div>
+              </article>
+            </FadeInSection>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold"
-          >
-            <Calendar className="mr-2 h-5 w-5" />
+        <FadeInSection className="text-center" delay={120}>
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+            <Calendar className="h-5 w-5" />
             Agende sua Consulta Agora
-          </Button>
-        </div>
+          </a>
+        </FadeInSection>
       </div>
     </section>
   )
