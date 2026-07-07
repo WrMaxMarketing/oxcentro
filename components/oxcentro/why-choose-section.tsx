@@ -39,7 +39,8 @@ export function WhyChooseSection() {
             Por que a OxCentro é a melhor escolha pra você?
           </h2>
           <p className="text-cinza leading-relaxed">
-            Vale de uma razão para confiar a saúde de sua família ao nosso cuidado.
+            {/* HIDE (orig): "Vale de uma razão para confiar a saúde de sua família ao nosso cuidado." (frase truncada/agramatical) */}
+            Mais de uma razão para confiar a saúde da sua família ao nosso cuidado.
           </p>
         </FadeInSection>
 
