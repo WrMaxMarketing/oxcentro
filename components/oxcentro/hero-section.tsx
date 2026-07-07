@@ -1,7 +1,19 @@
 import { Calendar, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
-const specialties = ['Ortopedia', 'Cardiologia', 'Dermatologia', 'Ginecologia', 'Neurologia']
+// HIDE (orig): const specialties = ['Ortopedia', 'Cardiologia', 'Dermatologia', 'Ginecologia', 'Neurologia']
+// Lista alinhada ao corpo clínico real (ver components/oxcentro/specialties-section.tsx).
+// Trocado "Cardiologia" de posição e incluída "Angiologia" (3 angiologistas na Equipe).
+const specialties = [
+  'Ortopedia', // Dr. Davi Braga de Carvalho
+  'Angiologia', // Janderson, Raissa e Saulo (3 angiologistas na Equipe)
+  'Dermatologia', // Dra. Mariana Soares Ferreira
+  'Ginecologia', // Dra. Ana Patrícia Nunes Barros
+  'Neurologia', // Dra. Ana Karoline da Costa Monteiro
+  // TODO: confirmar especialidade com a clínica — não há cardiologista listado na Equipe,
+  //       embora existam exames cardíacos (Eletrocardiograma, Holter, MAPA). Mantido até confirmação.
+  'Cardiologia',
+]
 
 const WHATSAPP_LINK =
   'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
@@ -14,6 +26,7 @@ export function HeroSection() {
     >
       {/* ===== IMAGEM DE FUNDO À DIREITA (lg+) — parte do background, com fade à esquerda ===== */}
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block lg:w-[60%]">
+        {/* LCP do hero: next/image com priority garante preload da imagem principal */}
         <Image
           src="/images/oxcentro-building.jpg"
           alt="Prédio OxCentro Médico"
@@ -88,8 +101,10 @@ export function HeroSection() {
               className="text-cinza text-base lg:text-[1.05rem] leading-relaxed max-w-lg animate-fade-up"
               style={{ animationDelay: '0.16s', marginBottom: 'clamp(0.85rem, 2vh, 1.5rem)' }}
             >
-              A OxCentro oferece consultas e procedimentos com tecnologia moderna, equipe médica
-              experiente e agendamento rápido.
+              {/* HIDE (orig): "A OxCentro oferece consultas e procedimentos com tecnologia moderna,
+                  equipe médica experiente e agendamento rápido." — incluído "em Teresina" (SEO local). */}
+              A OxCentro oferece consultas e procedimentos em Teresina, com tecnologia moderna, equipe
+              médica experiente e agendamento rápido.
             </p>
 
             {/* Chips de especialidades */}
