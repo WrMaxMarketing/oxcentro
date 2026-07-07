@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight, Zap, ShieldCheck, User } from 'lucide-react'
+import { Calendar, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 const specialties = ['Ortopedia', 'Cardiologia', 'Dermatologia', 'Ginecologia', 'Neurologia']
@@ -10,11 +10,33 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-white to-navy-50"
+      className="relative flex items-center overflow-hidden bg-gradient-to-b from-white via-white to-navy-50 min-h-[calc(100svh-4rem)] lg:h-[calc(100svh-4rem)]"
     >
-      {/* Formas decorativas leves */}
-      <div className="pointer-events-none absolute -top-24 -right-24 h-[520px] w-[520px] rounded-full bg-navy/5 blur-2xl" />
-      <div className="pointer-events-none absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-red/5 blur-2xl" />
+      {/* ===== IMAGEM DE FUNDO À DIREITA (lg+) — parte do background, com fade à esquerda ===== */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block lg:w-[60%]">
+        <Image
+          src="/images/oxcentro-building.jpg"
+          alt="Prédio OxCentro Médico"
+          fill
+          className="object-cover object-center"
+          sizes="60vw"
+          priority
+        />
+        {/* Fade horizontal: branco só atrás do texto, revelando a clínica à direita */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, #ffffff 0%, #ffffff 14%, rgba(255,255,255,0.82) 28%, rgba(255,255,255,0.30) 46%, rgba(255,255,255,0) 64%)',
+          }}
+        />
+        {/* Profundidade sutil na base + leve tom da marca */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/15 via-transparent to-transparent" />
+      </div>
+
+      {/* Formas decorativas leves (lado do texto) */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-navy/5 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-10 left-10 h-56 w-56 rounded-full bg-red/5 blur-3xl" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
@@ -23,23 +45,47 @@ export function HeroSection() {
         }}
       />
 
-      <div className="container relative mx-auto px-4 lg:px-8 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container relative z-10 mx-auto w-full px-4 lg:px-8 py-[clamp(1rem,3vh,2rem)] lg:py-[clamp(1.5rem,4vh,2.5rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           {/* ===== COLUNA ESQUERDA — TEXTO ===== */}
-          <div className="relative z-10">
-            <span className="eyebrow animate-fade-up">Centro Médico</span>
+          <div className="relative z-10 max-w-xl">
+            <span
+              className="eyebrow animate-fade-up"
+              style={{ marginBottom: 'clamp(0.5rem, 1.4vh, 0.75rem)' }}
+            >
+              Centro Médico
+            </span>
 
             <h1
-              className="section-title text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 animate-fade-up"
-              style={{ animationDelay: '0.08s' }}
+              className="section-title text-[clamp(1.6rem,1.2vh_+_1.35rem,1.95rem)] leading-[1.18] animate-fade-up lg:whitespace-nowrap"
+              style={{ animationDelay: '0.08s', marginBottom: 'clamp(0.75rem, 1.8vh, 1.25rem)' }}
             >
-              Atendimento médico especializado e{' '}
-              <span className="text-red">acessível</span>, perto de você!
+              Atendimento médico{' '}
+              <span className="relative inline-block text-navy">
+                especializado
+                {/* Traço decorativo sob a palavra em destaque */}
+                <svg
+                  className="absolute -bottom-1 left-0 w-full text-red"
+                  viewBox="0 0 200 12"
+                  fill="none"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 8.5C40 3.5 90 3 118 5.5C146 8 178 6.5 198 4"
+                    stroke="currentColor"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              {/* Única quebra de linha (desktop) */}
+              <br />e <span className="text-red font-black">acessível</span>, perto de você.
             </h1>
 
             <p
-              className="text-cinza text-lg leading-relaxed mb-8 max-w-lg animate-fade-up"
-              style={{ animationDelay: '0.16s' }}
+              className="text-cinza text-base lg:text-[1.05rem] leading-relaxed max-w-lg animate-fade-up"
+              style={{ animationDelay: '0.16s', marginBottom: 'clamp(0.85rem, 2vh, 1.5rem)' }}
             >
               A OxCentro oferece consultas e procedimentos com tecnologia moderna, equipe médica
               experiente e agendamento rápido.
@@ -47,13 +93,13 @@ export function HeroSection() {
 
             {/* Chips de especialidades */}
             <div
-              className="flex flex-wrap gap-2.5 mb-8 animate-fade-up"
-              style={{ animationDelay: '0.24s' }}
+              className="flex flex-wrap gap-2 animate-fade-up"
+              style={{ animationDelay: '0.24s', marginBottom: 'clamp(0.85rem, 2vh, 1.5rem)' }}
             >
               {specialties.map((spec) => (
                 <span
                   key={spec}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-navy-50 text-navy rounded-full text-sm font-medium"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/70 backdrop-blur-sm border border-navy-50 text-navy rounded-full text-sm font-medium shadow-sm transition-colors hover:border-navy/20"
                 >
                   <span className="w-1.5 h-1.5 bg-red rounded-full" />
                   {spec}
@@ -63,7 +109,7 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div
-              className="flex flex-col sm:flex-row sm:flex-wrap gap-4 mb-10 animate-fade-up"
+              className="flex flex-col sm:flex-row sm:flex-wrap gap-3 animate-fade-up"
               style={{ animationDelay: '0.32s' }}
             >
               <a
@@ -80,85 +126,20 @@ export function HeroSection() {
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
-
-            {/* Prova social */}
-            <div
-              className="flex items-center gap-4 animate-fade-up"
-              style={{ animationDelay: '0.4s' }}
-            >
-              <div className="flex -space-x-3">
-                {[0, 1, 2, 3].map((i) => (
-                  <span
-                    key={i}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-navy ring-2 ring-white"
-                  >
-                    <User className="h-4 w-4 text-white/90" />
-                  </span>
-                ))}
-              </div>
-              <div>
-                {/* PLACEHOLDER: substituir por número real de pacientes atendidos (ex: "+95 mil pacientes atendidos") */}
-                <p className="font-bold text-navy leading-tight">Pacientes que confiam na OxCentro</p>
-                <p className="text-sm text-cinza">Atendimento humanizado e de qualidade</p>
-              </div>
-            </div>
           </div>
 
-          {/* ===== COLUNA DIREITA — IMAGEM + CARDS FLUTUANTES ===== */}
-          <div className="relative">
-            {/* Blob navy decorativo atrás da imagem */}
-            <div className="absolute -inset-4 -z-0 bg-navy/10 animate-blob hidden sm:block" />
-
-            {/* Imagem principal */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-card h-[400px] lg:h-[520px]">
+          {/* ===== COLUNA DIREITA — IMAGEM (apenas mobile/tablet; no lg vira background) ===== */}
+          <div className="relative lg:hidden">
+            <div className="relative rounded-2xl overflow-hidden shadow-card h-[280px] sm:h-[360px]">
               <Image
                 src="/images/oxcentro-building.jpg"
                 alt="Prédio OxCentro Médico"
                 fill
                 className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 600px"
+                sizes="100vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/25 to-transparent" />
-            </div>
-
-            {/* Card flutuante — OxCentro / Centro Médico */}
-            <div className="absolute z-20 top-4 left-4 sm:-left-5 bg-white rounded-2xl shadow-card px-4 py-3 flex items-center gap-3 animate-float">
-              <div className="relative h-9 w-9 flex-shrink-0">
-                <Image
-                  src="/images/oxcentro-logo.png"
-                  alt="OxCentro"
-                  fill
-                  className="object-contain"
-                  sizes="36px"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-navy text-base leading-tight">OxCentro</p>
-                <p className="text-xs text-cinza">Centro Médico</p>
-              </div>
-            </div>
-
-            {/* Cards flutuantes inferiores — Rápido / IAPEP */}
-            <div className="absolute z-20 bottom-4 left-4 right-4 sm:-left-5 sm:right-5 flex gap-3">
-              <div className="flex-1 bg-white rounded-2xl shadow-card px-4 py-3 flex items-center gap-3 animate-float [animation-delay:1s]">
-                <div className="h-9 w-9 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
-                  <Zap className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-navy text-lg leading-tight">Rápido</p>
-                  <p className="text-xs text-cinza">Agendamento</p>
-                </div>
-              </div>
-              <div className="flex-1 bg-white rounded-2xl shadow-card px-4 py-3 flex items-center gap-3 animate-float [animation-delay:2s]">
-                <div className="h-9 w-9 rounded-full bg-red flex items-center justify-center flex-shrink-0">
-                  <ShieldCheck className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-navy text-lg leading-tight">IAPEP</p>
-                  <p className="text-xs text-cinza">e Particular</p>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 to-transparent" />
             </div>
           </div>
         </div>

@@ -23,29 +23,37 @@ export function ContactSection() {
         </FadeInSection>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-          {/* Cards de contato */}
-          <FadeInSection>
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {infos.map((info) => (
-                <div key={info.label} className="card-soft flex items-start gap-4 p-5">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-navy flex-shrink-0">
-                    <info.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-navy text-sm mb-0.5">{info.label}</h3>
-                    <p className="text-cinza text-sm leading-snug">{info.value}</p>
-                  </div>
+          {/* Cards de contato — lista vertical, cada card ocupa a largura toda */}
+          <FadeInSection className="flex flex-col gap-4">
+            {infos.map((info) => (
+              <div
+                key={info.label}
+                className="card-soft group flex items-center gap-4 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                  <info.icon className="h-5 w-5 text-white" />
                 </div>
-              ))}
-            </div>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-navy text-[0.8rem] uppercase tracking-wide mb-0.5">
+                    {info.label}
+                  </h3>
+                  <p className="text-cinza text-[0.95rem] leading-snug break-words">{info.value}</p>
+                </div>
+              </div>
+            ))}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp mt-2 w-full sm:w-auto sm:self-start"
+            >
               <MessageCircle className="h-5 w-5" />
               Agende seu Exame Agora
             </a>
           </FadeInSection>
 
           {/* Mapa */}
-          <FadeInSection className="relative">
+          <FadeInSection className="relative min-h-[420px]">
             <div className="relative h-[420px] min-h-[420px] w-full overflow-hidden rounded-2xl border border-borda bg-white shadow-card lg:h-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.2255476086786!2d-42.81231712415128!3d-5.067169451457497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78e39016912389d%3A0xc3f8b0008518902d!2sOxcentro%20M%C3%A9dico!5e0!3m2!1spt-BR!2sbr!4v1710790000000!5m2!1spt-BR!2sbr"
