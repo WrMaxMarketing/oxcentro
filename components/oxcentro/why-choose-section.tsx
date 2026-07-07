@@ -47,7 +47,8 @@ export function WhyChooseSection() {
           {features.map((f, i) => (
             <FadeInSection key={f.number} delay={i * 100} className="h-full">
               <div className="group relative h-full rounded-2xl bg-white border border-borda p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
-                <span className="block font-heading text-5xl font-extrabold text-red mb-3 leading-none">
+                {/* HIDE (orig): className="... text-red ..." — número (texto) sobre card branco, trocado p/ text-red-ink (AA) */}
+                <span className="block font-heading text-5xl font-extrabold text-red-ink mb-3 leading-none">
                   {f.number}
                 </span>
                 <h3 className="font-heading font-bold text-navy text-lg mb-2">{f.title}</h3>

@@ -108,7 +108,8 @@ export function ExamsSection() {
                   className="group flex items-center gap-3 rounded-xl border border-borda bg-white px-4 py-3.5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-navy/20 hover:shadow-card"
                 >
                   <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-navy-50 transition-colors duration-200 group-hover:bg-navy">
-                    <Check className="h-4 w-4 text-red transition-colors duration-200 group-hover:text-white" />
+                    {/* HIDE (orig): className="... text-red ..." — ícone sobre fundo claro, trocado p/ text-red-ink (AA) */}
+                    <Check className="h-4 w-4 text-red-ink transition-colors duration-200 group-hover:text-white" />
                   </span>
                   <span className="text-sm font-medium text-navy">{exam}</span>
                 </li>

@@ -169,7 +169,8 @@ export function SpecialtiesSection() {
         <FadeInSection className="max-w-3xl mb-12">
           <span className="eyebrow">Nossa Equipe</span>
           <h2 className="section-title text-3xl lg:text-4xl mb-4">
-            Especialistas prontos para <span className="text-red">cuidar de você</span>
+            {/* HIDE (orig): <span className="text-red"> — trocado p/ text-red-ink (texto sobre fundo claro, AA) */}
+            Especialistas prontos para <span className="text-red-ink">cuidar de você</span>
           </h2>
           <p className="text-cinza leading-relaxed">
             Um corpo clínico multidisciplinar, com registro ativo e experiência em diversas áreas da
@@ -190,7 +191,8 @@ export function SpecialtiesSection() {
                     {getInitials(doc.name)}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-red text-[0.7rem] font-bold uppercase tracking-wider">
+                    {/* HIDE (orig): className="text-red ..." — rótulo (texto) sobre card branco, trocado p/ text-red-ink (AA) */}
+                    <p className="text-red-ink text-[0.7rem] font-bold uppercase tracking-wider">
                       {doc.specialty}
                     </p>
                     <h3 className="font-heading font-bold text-navy text-lg leading-tight">

@@ -80,7 +80,8 @@ export function HeroSection() {
                 </svg>
               </span>
               {/* Única quebra de linha (desktop) */}
-              <br />e <span className="text-red font-black">acessível</span>, perto de você.
+              {/* HIDE (orig): <span className="text-red font-black"> — trocado p/ text-red-ink (texto sobre fundo claro, AA) */}
+              <br />e <span className="text-red-ink font-black">acessível</span>, perto de você.
             </h1>
 
             <p

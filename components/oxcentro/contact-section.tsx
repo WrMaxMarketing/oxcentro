@@ -18,7 +18,8 @@ export function ContactSection() {
         <FadeInSection className="max-w-2xl mb-12">
           <span className="eyebrow">Fale Conosco</span>
           <h2 className="section-title text-3xl lg:text-4xl">
-            Entre em contato e <span className="text-red">agende seu exame</span>
+            {/* HIDE (orig): <span className="text-red"> — trocado p/ text-red-ink (texto sobre fundo claro, AA) */}
+            Entre em contato e <span className="text-red-ink">agende seu exame</span>
           </h2>
         </FadeInSection>
 

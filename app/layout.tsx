@@ -45,6 +45,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
+        {/* Skip link: salta direto para o conteúdo principal (visível só no foco) */}
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         {children}
         <Analytics />
       </body>

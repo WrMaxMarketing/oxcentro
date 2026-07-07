@@ -43,7 +43,8 @@ export function TestimonialsSection() {
             <FadeInSection key={i} delay={i * 120} className="h-full">
               {/* PLACEHOLDER: substituir por depoimento real */}
               <figure className="flex h-full flex-col rounded-2xl bg-white p-7 shadow-card">
-                <Quote className="h-9 w-9 text-red mb-4 flex-shrink-0" aria-hidden="true" />
+                {/* HIDE (orig): className="... text-red ..." — ícone sobre card branco, trocado p/ text-red-ink (AA) */}
+                <Quote className="h-9 w-9 text-red-ink mb-4 flex-shrink-0" aria-hidden="true" />
                 <blockquote className="flex-1 text-cinza leading-relaxed text-sm mb-6">
                   {t.text}
                 </blockquote>
