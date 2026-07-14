@@ -149,7 +149,7 @@ export function HeroSection() {
           <div className="relative lg:hidden">
             <div className="relative rounded-2xl overflow-hidden shadow-card h-[280px] sm:h-[360px]">
               <Image
-                src="/images/oxcentro-building.jpg"
+                src="/images/ox-fachada.png"
                 alt="Prédio OxCentro Médico"
                 fill
                 className="object-cover object-center"
