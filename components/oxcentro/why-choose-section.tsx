@@ -1,5 +1,5 @@
-import { Calendar } from 'lucide-react'
 import { FadeInSection } from './fade-in-section'
+import { WhatsappIcon } from './whatsapp-icon'
 
 const features = [
   {
@@ -27,13 +27,13 @@ const features = [
 ]
 
 const WHATSAPP_LINK =
-  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
+  'https://wa.me/5586999709983?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
 
 export function WhyChooseSection() {
   return (
     <section id="beneficios" className="py-20 lg:py-28 bg-navy-50">
       <div className="container mx-auto px-4 lg:px-8">
-        <FadeInSection className="text-center max-w-2xl mx-auto mb-14">
+        <FadeInSection className="text-center max-w-2xl mx-auto mb-12">
           <span className="eyebrow">Por que nos escolher?</span>
           <h2 className="section-title text-3xl lg:text-4xl mb-4">
             Por que a OxCentro é a melhor escolha pra você?
@@ -60,9 +60,9 @@ export function WhyChooseSection() {
           ))}
         </div>
 
-        <FadeInSection className="text-center mt-14" delay={150}>
+        <FadeInSection className="text-center mt-12" delay={150}>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-            <Calendar className="h-5 w-5" />
+            <WhatsappIcon className="h-5 w-5" />
             Agende sua Consulta Agora
           </a>
         </FadeInSection>

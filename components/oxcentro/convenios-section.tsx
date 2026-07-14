@@ -58,7 +58,7 @@ export function ConveniosSection() {
       <div className="container mx-auto px-4 lg:px-8 mb-12">
         <FadeInSection className="text-center max-w-xl mx-auto">
           <span className="eyebrow">Planos aceitos</span>
-          <h2 className="section-title text-3xl lg:text-4xl mb-3">Nossos convênios</h2>
+          <h2 className="section-title text-3xl lg:text-4xl mb-4">Nossos convênios</h2>
           <p className="text-cinza leading-relaxed">
             Trabalhamos com os principais convênios para facilitar seu atendimento
           </p>
@@ -82,7 +82,7 @@ export function ConveniosSection() {
                   src={c.logo}
                   alt={i >= convenios.length ? '' : c.name}
                   fill
-                  className="object-contain grayscale transition-all duration-300 group-hover:grayscale-0"
+                  className="object-contain"
                   sizes="96px"
                 />
               </div>

@@ -35,7 +35,7 @@ export function ClinicCarousel() {
       <div className="container mx-auto px-4 lg:px-8">
         <FadeInSection className="text-center max-w-2xl mx-auto mb-12">
           <span className="eyebrow">Nossa Estrutura</span>
-          <h2 className="section-title text-3xl lg:text-4xl mb-3">Conheça nossa estrutura</h2>
+          <h2 className="section-title text-3xl lg:text-4xl mb-4">Conheça nossa estrutura</h2>
           <p className="text-cinza leading-relaxed">
             Instalações modernas e equipamentos de última geração para oferecer o melhor cuidado à
             sua saúde.

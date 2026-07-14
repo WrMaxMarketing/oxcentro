@@ -1,5 +1,6 @@
-import { Calendar, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { WhatsappIcon } from './whatsapp-icon'
 
 // HIDE (orig): const specialties = ['Ortopedia', 'Cardiologia', 'Dermatologia', 'Ginecologia', 'Neurologia']
 // Lista alinhada ao corpo clínico real (ver components/oxcentro/specialties-section.tsx).
@@ -16,7 +17,7 @@ const specialties = [
 ]
 
 const WHATSAPP_LINK =
-  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
+  'https://wa.me/5586999709983?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
 
 export function HeroSection() {
   return (
@@ -28,7 +29,7 @@ export function HeroSection() {
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block lg:w-[60%]">
         {/* LCP do hero: next/image com priority garante preload da imagem principal */}
         <Image
-          src="/images/oxcentro-building.jpg"
+          src="/images/ox-fachada.png"
           alt="Prédio OxCentro Médico"
           fill
           className="object-cover object-center"
@@ -134,7 +135,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 className="btn-whatsapp w-full sm:w-auto"
               >
-                <Calendar className="h-5 w-5" />
+                <WhatsappIcon className="h-5 w-5" />
                 Agende sua Consulta Agora
               </a>
               <a href="#especialidades" className="btn-navy-outline w-full sm:w-auto">
