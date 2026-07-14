@@ -3,20 +3,29 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { NAV_ITEMS } from '@/lib/navigation'
+import { WhatsappIcon } from './whatsapp-icon'
 
-const navItems = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Benefícios', href: '#beneficios' },
-  { label: 'Convênios', href: '#convenios' },
-  { label: 'Especialidades', href: '#especialidades' },
-  { label: 'Exames', href: '#exames' },
-  { label: 'Contato', href: '#contato' },
-]
+/*
+ * HIDE (orig): navItems local — substituído pela taxonomia canônica em @/lib/navigation.
+ * O item "Especialidades" apontava para a seção da equipe (#especialidades), quebrando a
+ * expectativa do usuário; agora o rótulo é "Equipe" (mesmo âncora, link funcional).
+ *
+ * const navItems = [
+ *   { label: 'Início', href: '#inicio' },
+ *   { label: 'Benefícios', href: '#beneficios' },
+ *   { label: 'Convênios', href: '#convenios' },
+ *   { label: 'Especialidades', href: '#especialidades' },
+ *   { label: 'Exames', href: '#exames' },
+ *   { label: 'Contato', href: '#contato' },
+ * ]
+ */
+const navItems = NAV_ITEMS
 
 const WHATSAPP_LINK =
-  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
+  'https://wa.me/5586999709983?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -78,7 +87,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-whatsapp-dark hover:scale-105"
           >
-            <Phone className="h-4 w-4" />
+            <WhatsappIcon className="h-4 w-4" />
             Agende sua Consulta
           </a>
         </div>
@@ -115,7 +124,7 @@ export function Header() {
               className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-whatsapp-dark"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Phone className="h-4 w-4" />
+              <WhatsappIcon className="h-4 w-4" />
               Agende sua Consulta
             </a>
           </div>

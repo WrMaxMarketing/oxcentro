@@ -21,12 +21,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/icon.png',
+        sizes: '512x512',
+        type: 'image/png',
       },
       {
         url: '/icon.svg',
@@ -43,8 +45,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
+        {/* HIDE: Skip link ocultado a pedido. Preservado para reativar quando necessário.
+            (âncora #conteudo e a classe .skip-link em globals.css continuam existindo)
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
+        */}
         {children}
         <Analytics />
       </body>

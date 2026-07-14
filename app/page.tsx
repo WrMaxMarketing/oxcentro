@@ -14,7 +14,7 @@ import { WhatsAppButton } from "@/components/oxcentro/whatsapp-button"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main id="conteudo" tabIndex={-1} className="min-h-screen">
       <Header />
       <HeroSection />
       <BenefitsBar />

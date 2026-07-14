@@ -1,8 +1,9 @@
-import { Plus, MessageCircle } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { FadeInSection } from './fade-in-section'
+import { WhatsappIcon } from './whatsapp-icon'
 
 const WHATSAPP_LINK =
-  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento.'
+  'https://wa.me/5586999709983?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento.'
 
 /** Posições das cruzes médicas decorativas (branco translúcido) */
 const crosses = [
@@ -46,7 +47,7 @@ export function CtaBand() {
             rel="noopener noreferrer"
             className="btn-whatsapp flex-shrink-0 text-base"
           >
-            <MessageCircle className="h-5 w-5" />
+            <WhatsappIcon className="h-5 w-5" />
             Falar no WhatsApp
           </a>
         </FadeInSection>

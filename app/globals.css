@@ -8,7 +8,9 @@
   --navy: #003b75; /* cor primária: faixas, títulos, ícones */
   --navy-900: #002a54; /* navy escuro (footer, hovers) */
   --navy-50: #eaf1f8; /* fundos suaves / chips */
-  --red: #f80103; /* CONTRASTE: eyebrows, números, detalhes (com parcimônia) */
+  /* HIDE (orig): --red: #f80103; comentário "CONTRASTE: eyebrows, números, detalhes (com parcimônia)" */
+  --red: #f80103; /* fill de botão (pill) — NÃO usar em texto/ícone sobre fundo claro (reprova AA) */
+  --red-ink: #c50003; /* vermelho p/ TEXTO e ÍCONES sobre fundo claro (~6:1, passa WCAG AA) */
   --cinza-texto: #4a5568; /* texto de corpo */
   --borda-suave: #e2e8f0; /* bordas de cards */
   --whatsapp: #25d366; /* verde WhatsApp (CTAs de agendamento) */
@@ -95,6 +97,7 @@
   --color-navy-900: var(--navy-900);
   --color-navy-50: var(--navy-50);
   --color-red: var(--red);
+  --color-red-ink: var(--red-ink);
   --color-cinza: var(--cinza-texto);
   --color-borda: var(--borda-suave);
   --color-whatsapp: var(--whatsapp);
@@ -243,9 +246,30 @@
   /* Eyebrow: rótulo vermelho uppercase acima dos títulos de seção */
   .eyebrow {
     @apply inline-block font-bold uppercase mb-3;
-    color: var(--red);
+    /* HIDE (orig): color: var(--red); — trocado p/ token AA (texto sobre fundo claro) */
+    color: var(--red-ink);
     font-size: 0.8rem;
     letter-spacing: 0.15em;
+  }
+
+  /* Skip link "Pular para o conteúdo": visível apenas ao receber foco */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    transform: translateY(-160%);
+    background: var(--navy);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
   }
 
   /* Título de seção padrão */

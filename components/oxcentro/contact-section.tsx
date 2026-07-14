@@ -1,5 +1,6 @@
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { FadeInSection } from './fade-in-section'
+import { WhatsappIcon } from './whatsapp-icon'
 
 const infos = [
   { icon: Phone, label: 'Telefone / WhatsApp', value: '(86) 9 9970-9973' },
@@ -9,16 +10,17 @@ const infos = [
 ]
 
 const WHATSAPP_LINK =
-  'https://wa.me/5586999709973?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame.'
+  'https://wa.me/5586999709983?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame.'
 
 export function ContactSection() {
   return (
-    <section id="contato" className="py-20 lg:py-28 bg-navy-50">
+    <section id="contato" className="py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
         <FadeInSection className="max-w-2xl mb-12">
           <span className="eyebrow">Fale Conosco</span>
           <h2 className="section-title text-3xl lg:text-4xl">
-            Entre em contato e <span className="text-red">agende seu exame</span>
+            {/* HIDE (orig): <span className="text-red"> — trocado p/ text-red-ink (texto sobre fundo claro, AA) */}
+            Entre em contato e <span className="text-red-ink">agende seu exame</span>
           </h2>
         </FadeInSection>
 
@@ -47,7 +49,7 @@ export function ContactSection() {
               rel="noopener noreferrer"
               className="btn-whatsapp mt-2 w-full sm:w-auto sm:self-start"
             >
-              <MessageCircle className="h-5 w-5" />
+              <WhatsappIcon className="h-5 w-5" />
               Agende seu Exame Agora
             </a>
           </FadeInSection>

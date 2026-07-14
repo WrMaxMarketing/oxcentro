@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react'
 
 const navigationLinks = [
@@ -15,8 +16,14 @@ export function Footer() {
           {/* Marca */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
-                <span className="font-heading font-bold text-navy">O</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white p-1.5">
+                <Image
+                  src="/images/oxcentro-symbol.png"
+                  alt="Símbolo OxCentro"
+                  width={45}
+                  height={37}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <span className="text-xl font-heading font-bold text-white">OxCentro</span>
             </div>
@@ -85,14 +92,11 @@ export function Footer() {
         {/* Barra inferior */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">
-            © 2024 OxCentro Médico. Todos os direitos reservados.
+            © {new Date().getFullYear()} OxCentro Médico. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
               Ajuda
-            </Link>
-            <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
-              Privacidade
             </Link>
             <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
               Política de Privacidade
